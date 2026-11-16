@@ -17,7 +17,7 @@ import statistics
 import threading
 import time
 
-log = logging.getLogger('marrow.dashboard')
+log = logging.getLogger('annulus')
 
 DEFAULT_TARGETS = {
     'kcal': 2200.0,

@@ -1,10 +1,11 @@
-# Marrow Dashboard
+# Annulus
 
-A personal web dashboard for Apple Health data, built on top of a self-hosted
-[Marrow](https://marrowhealthapp.com) server.
+Annulus is an unofficial, personal web dashboard for a self-hosted
+[Marrow](https://marrowhealthapp.com) server (an Apple Health mirror). It is
+not affiliated with or endorsed by Marrow.
 
 The Marrow iPhone app mirrors Apple Health to a server I run at home. A small
-sync job copies that mirror into InfluxDB, and this dashboard reads from it:
+sync job copies that mirror into InfluxDB, and Annulus reads from it:
 activity rings, sleep stages, heart rate and HRV, weight, workouts, and a food
 diary, organised into four tabs:
 
@@ -38,8 +39,8 @@ Demo data, light theme, 1280 px wide.
 Python 3.9+ only; no dependencies.
 
 ```sh
-git clone https://github.com/pku-zhb/marrow-dashboard.git
-cd marrow-dashboard
+git clone https://github.com/pku-zhb/annulus.git
+cd annulus
 python3 serve.py            # then open http://127.0.0.1:8800
 ```
 
@@ -54,7 +55,7 @@ public/                      the frontend: index.html, app.js, theme.css, icons,
 serve.py                     stdlib demo server: static files + /api/ui/overview from the fixture
 demo/generate.py             builds the synthetic dataset and runs it through the real payload builder
 demo/overview.json           the generated fixture (committed)
-marrow_dashboard/overview.py payload builder used in the real setup (InfluxDB → one JSON payload)
+annulus/overview.py          payload builder used in the real setup (InfluxDB → one JSON payload)
 scripts/screenshots.py       regenerates docs/screenshots (needs `pip install playwright`)
 ```
 
@@ -74,7 +75,7 @@ The generator produces about four years of daily data for a fictional person
 (seasonal step counts, weekly workout rhythm, slowly improving resting heart
 rate and VO₂max, a gentle weight trend, sleep with stage segments, hourly
 heart rate, and a made-up food diary), then feeds it through
-`marrow_dashboard/overview.py` via an in-memory stand-in for InfluxDB, so the
+`annulus/overview.py` via an in-memory stand-in for InfluxDB, so the
 fixture matches what the real backend serves.
 
 ### Using it with a real Marrow server
@@ -92,4 +93,5 @@ workout points. Auth is optional and up to you.
 
 MIT, see [LICENSE](LICENSE). The bundled Fraunces font is under the SIL Open
 Font License 1.1 (`public/vendor/fraunces-OFL.txt`). Marrow is a separate app
-by its own developer; this project is an unofficial personal frontend.
+by its own developer; Annulus is an unofficial personal frontend and is not
+affiliated with Marrow.

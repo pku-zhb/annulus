@@ -3,7 +3,7 @@
 
 Nothing here comes from a real person. A seeded random walk produces about
 three years of plausible Apple Health style data for a fictional user, feeds
-it through the real payload builder (`marrow_dashboard/overview.py`) via an
+it through the real payload builder (`annulus/overview.py`) via an
 in-memory stand-in for InfluxDB, and writes `demo/overview.json`.
 
     python3 demo/generate.py                 # anchored at 2026-11-16 21:30
@@ -24,7 +24,7 @@ from unittest import mock
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from marrow_dashboard import overview as ov  # noqa: E402
+from annulus import overview as ov  # noqa: E402
 
 TZ_OFFSET = 8 * 3600
 TZ = timezone(timedelta(seconds=TZ_OFFSET))

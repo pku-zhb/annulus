@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Serve the dashboard with the synthetic demo payload. Standard library only.
+"""Serve the Annulus dashboard with the synthetic demo payload. Standard library only.
 
     python3 serve.py              # http://127.0.0.1:8800
     python3 serve.py --port 9000 --host 0.0.0.0
@@ -67,14 +67,14 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 def main():
-    ap = argparse.ArgumentParser(description='Marrow dashboard demo server')
+    ap = argparse.ArgumentParser(description='Annulus demo server')
     ap.add_argument('--host', default='127.0.0.1')
     ap.add_argument('--port', type=int, default=8800)
     args = ap.parse_args()
     if not FIXTURE.exists():
         raise SystemExit('demo/overview.json is missing; run: python3 demo/generate.py')
     server = ThreadingHTTPServer((args.host, args.port), Handler)
-    print(f'Marrow demo on http://{args.host}:{args.port}  (Ctrl+C to stop)')
+    print(f'Annulus demo on http://{args.host}:{args.port}  (Ctrl+C to stop)')
     try:
         server.serve_forever()
     except KeyboardInterrupt:

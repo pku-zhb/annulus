@@ -1,5 +1,5 @@
 'use strict';
-// Marrow — four plain-language views (today, recent, changes, history) built from pluggable cards.
+// Annulus — four plain-language views (today, recent, changes, history) built from pluggable cards.
 // Every card leads with a one-sentence conclusion; charts are pure SVG (CSP forbids inline styles).
 (() => {
   const app = document.getElementById('app');
@@ -19,7 +19,7 @@
     play: '趣味运动', workout: '综合训练', other: '其他',
   };
   const SPORT_COLORS = ['#E8475F', '#1F8A63', '#1A9BD7', '#C7811F', '#6A5ACD', '#14A08F', '#8DBE2E', '#94A3B8'];
-  const LAYOUT_STORAGE_KEY = 'marrow.layout.v3';
+  const LAYOUT_STORAGE_KEY = 'annulus.layout.v3';
 
   const TABS = [
     { id: 'today', label: '今日' },
@@ -2010,7 +2010,7 @@
     return `<header class="topbar">
       <div class="topbar-inner">
         <div class="brand-group">
-          <button type="button" class="brand-link" data-tab="today" aria-label="Marrow 首页">${ICON_BRAND}<span class="brand-name">Marrow</span></button>
+          <button type="button" class="brand-link" data-tab="today" aria-label="Annulus 首页">${ICON_BRAND}<span class="brand-name">Annulus</span></button>
           <button type="button" class="fresh-pill" id="freshBtn" aria-expanded="${openPopover === 'fresh'}" title="数据同步状态">
             <i class="fresh-dot ${f.lag ? 'lag' : ''}"></i><span>${f.lag ? '同步滞后' : '已同步'} ${esc(f.ingestShort.replace('今天 ', ''))}</span>
           </button>
@@ -2265,7 +2265,7 @@
     openPopover = null;
     composerOpen = false;
     app.innerHTML = `<div class="login-wrap"><section class="login-card">
-      <div class="login-brand">${ICON_BRAND}<h1>Marrow</h1></div>
+      <div class="login-brand">${ICON_BRAND}<h1>Annulus</h1></div>
       <p>登录查看你的健康数据。</p>
       <form class="stack" id="loginform">
         <label>账号<input name="username" autocomplete="username" required autocapitalize="off"></label>
